@@ -1,0 +1,14 @@
+#####################
+Patrones de Diseño
+#####################
+Java EE 8 Design Patterns And Best Practices
+
+Dependency Injection: Es un patron de diseño que esta orientado a objetos, en el que le suministra objetos a una clase en lugar de que la propia clase cree dichos objetos.
+					  Estos objetos cumplen contratos que necesitan nuestras clases para poder funcionar (condepto dependencia). Nuestra clase no crea los objetos que necesita sino otra clase contenedora  IoC
+					  
+					  
+Patrones para resilience
+Circuit-Breaker : Su funion es de un proxy  para rutear las operaciones. Tiene 3 estados.
+				  Closed: Si las peticiones no presentan ningun fallo se mantiene cerrado el circuito. 
+				  Open : En caso de existir un problema se abre el circuito y se coloca un contador para saber el numero de peticiones erroneas, en caso de exceder el numero se envia a half-open
+				  Half-open: Se espera un tiempo configurado para saber si se recupera del fallo  y si es asi se envia a Closed y el contador se resetea si la peticion vuelve a fallar se pone en Open.

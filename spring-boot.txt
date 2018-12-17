@@ -1,0 +1,157 @@
+######################
+SPRING BOOT
+#####################
+https://github.com/in28minutes/spring-boot-master-class
+https://docs.spring.io/spring-boot/docs/2.1.x/reference/html/common-application-properties.html
+https://o7planning.org/en/11257/using-multiple-viewresolvers-in-spring-boot#a14715625
+exceptions
+https://github.com/in28minutes/spring-boot-examples/tree/master/spring-boot-2-rest-service-exception-handling
+https://github.com/brunocleite/spring-boot-exception-handling/blob/master/src/main/java/com/example/springbootexceptionhandling/EntityNotFoundException.java
+https://www.toptal.com/java/spring-boot-rest-api-error-handling
+http://www.springboottutorial.com/spring-boot-exception-handling-for-rest-services
+security
+https://o7planning.org/en/11705/create-a-login-application-with-spring-boot-spring-security-jpa
+https://spring.io/guides/gs/securing-web/
+
+
+##############################################
+Spring Framework
+#############################################
+Spring Framework: Es un Application development framework que se puede integrar con diferentes tecnologias, provee un estilo consistente en la programacion
+Tecnlogias: web (cliente y servidor), data access, caching, messaging, batch, security , cloud etc
+
+Dependency Injections:
+Easy to switch implementation, easy to test, permite programacion orientada a aspectos y permite discoverability
+
+Beans: Son objetos manejados por spring, cada bean tiene un nombre, la mayoria de bean son singleton. Loas beans son creados de bean definitions (template)
+
+Ciclo de vida de un bean
+instanciar(crea una instancia del bean), populate las propiedades, call BeanNameAware.setBeanName, call BeanFactoryAware.setBEanFactory,Preinicializacion (via PostProcessor),@PostConstruct, PosInicializacion (via PostBeanProcessor), @PreDestroy (clean up)
+
+Spring MVC: Parte de spring que es usado para desarrollar aplicaciones web, utiliza Model view controller, HTML web applications, Rest End points, serve "single page applications"
+
+Spring boot: convention over configuration Spring, Maneja las dependencias atravez de parents, production-ready features.
+
+AssertJ
+
+@Autowired -> Convertirlo a final y hacer un constructor
+
+####
+partes importantes en spring boot
+####
+
+-comenzar con Spring Initializar at start.spring.io
+
+- Spring boot started parent = tiene herencia de dependencias del framework (version)
+- Spring boot started Web = dependencias para proyectos web , dependencias core
+- Embedded Tomcat = 
+-Dev  =Tools inicializa el server a autodetectar cambios
+
+Para incicializar spring boot es necesario crear una clase con su metodo main
+Y agregar la anotacion
+@SpringBootApplication -- >inicializa Spring (component scan) and spring boot (auto configuration)
+
+
+
+@Controller   -> Indica a la clase que sera un controlado
+@RequestMapping("/login") -> Indica al metodo como sera mapeado el request
+@ResponseBody 			 --> Indica la respuesta del metodo
+logging.level.org.springframework.web: DEBUG
+
+##############################################
+Para la configuracion de JSP ViewResolver
+#############################################
+Front Controller en SpringFramework -- > DispacherServlet
+Agregar la configuracion en el archivo de propiedades
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+------
+@Controller  -> Spring marca como controlador al Pojo(Es un tipo estilizado de @Component)
+@RequestMapping("/login") ->Mapea el request enviado por el Dispacher Servlet
+@Autowire  ->Realiza una injection de dependencias
+@Component ->Spring toma como un bean al pojo etiquetado como componente
+@Qualifier ->Spring Identifica con un nombre especial a un compoenete, service, etc
+@Service   ->Se utiliza cuando hay logica de negocio
+@Repository ->Se utiliza para indicar las operaciones con la Base de Datos (JPA)
+@ComponetScans (Escanea por medio de los paquetes) se realiza automaticamente x medio de @SpringBootApplication
+-------
+FrontController --> DispacherServlet
+			 Browser
+				|
+				|
+			FronController
+				|	
+Controller1  Controller2	ControllerN
+	|							|
+	----->	    Model   <--------
+
+
+Agregar dependencya en maven para activar la interperetacion de JSP
+tomacat-embed-jasper
+
+##############################################
+Handling Exception MVC
+#############################################
+@ResponseStatus  send a automatic page for spring
+@ExceptionHandler by controller
+ModelAndView   you can send to specific page and data
+------
+Global Exception Handling
+@ControllerAdvice
+------
+SimpleMappingExceptionResolver
+extends SimpleMappingExceptionResolver
+##############################################
+Handling Exception RestService
+#############################################
+@ControllerAdvice
+@RestController
+extends ResponseEntityExceptionHandler
+Metodo->
+@ExceptionHandler(YOUR_EXCEPTION.class)
+///////////////////
+Declarar YOUR_EXCEPTION de tipo Exception Runtime
+@ResponseStatus(HttpStatus.NOT_FOUND)
+-------------------------------------------------
+
+Configuration 12 factors -> 12factor.net/config
+-Se refiere a una estricta separacion de la configuracion y el codigo. la configuracion varia sustancialmente en cada despliegue el codigo NO.
+-Mi codigo base puede convertirse en codigo abierto en cualquier momento, sin comprometer las credenciales?
+Las aplicaciones 12 Factor almacenan la configuracion en variable de entorno, las cuales se pueden modificar facielmente entre deploys
+
+Motivacion x Cloud
+Facil escalamiento, costo, automatizacion, flexibilidad.
+---
+https://github.com/Apress/beg-spring-boot-2/tree/master/chapter-02
+Beginning Spring boot 2 pplication and microservices  with the spring framework
+K. Siva Prasad
+
+
+Matar un proceso
+netstat -ano | findstr :8080
+taskkill /PID 3908 /F
+
+ipconfig /flushdns
+
+########################################
+Spring Test
+https://techdev.io/en/developer-blog/testing-a-secured-spring-data-rest-service-with-java-8-and-mockmvc
+https://stackoverflow.com/questions/49889803/how-to-test-a-rest-service-with-spring-security-on-spring-boot
+https://www.adictosaltrabajo.com/2015/07/27/tests-de-integracion-con-spring-boot-spring-security-en-servicios-rest/
+https://dzone.com/articles/how-mac-os-developers-test-their-website-on-intern
+https://www.baeldung.com/spring-security-integration-tests
+https://stackoverflow.com/questions/15203485/spring-test-security-how-to-mock-authentication
+https://www.blazemeter.com/blog/spring-boot-rest-api-unit-testing-with-junit
+https://howtodoinjava.com/best-practices/how-you-should-unit-test-dao-layer/
+https://www.baeldung.com/spring-boot-testing
+http://www.springboottutorial.com/spring-boot-unit-testing-and-mocking-with-mockito-and-junit
+https://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-normal-controllers/
+https://www.petrikainulainen.net/programming/spring-framework/unit-testing-of-spring-mvc-controllers-rest-api/
+https://thepracticaldeveloper.com/2017/07/31/guide-spring-boot-controller-tests/
+
+Microservice
+https://spring.io/blog/2015/07/14/microservices-with-spring
+https://dzone.com/articles/microservices-communication-service-to-service
+
+Java 8
+https://www.ecodeup.com/entendiendo-paso-a-paso-las-expresiones-lambda-en-java/

@@ -1,0 +1,16 @@
+################
+SPRING SECURITY
+################
+
+Spring CLI
+Spring initializer
+https://start.spring.io/
+SpEL
+Dependency Injection
+RestTemplate  --> ResponseEntity<String> exchange = this.restTemplate.exchange("https://www.googleapis.com/books/v1/volumes?q=isbn:+isbn, HttpMethod.GET,null, String.class);
+1449374646
+
+Spring Security esta basado en un Filter de JEE --> Init, destroy and doFilter = chain.doFilter(request,response)
+FilterChainProxy
+Authentication = Quien esta haciendo el request --> Memory, JDBC, LDAP
+Autorization = Que privilegios o Roles tiene 
