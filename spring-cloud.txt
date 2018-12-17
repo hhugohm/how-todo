@@ -1,0 +1,70 @@
+######################
+SPRING CLOUD
+#####################
+https://www.udemy.com/microservices-with-spring-boot-and-spring-cloud/
+https://github.com/in28minutes/spring-microservices/tree/master/03.microservices
+
+
+Definicion: Es un servicio pequeño autonomo y que trabaja de forma especifica y se deployan de forma independiente en cloud (teniendo diferentes instancias)
+
+Spring Cloud Configuration Server: En esta parte se realizan todas las configuraiones centralizada de nuestros microservicios existentes.
+Naming Server  :                   Todas las instancis de nuestros microservicios se van a registrar en EUREKA.
+Ribbon Load Balancing:             (Client Side  Load Balancing)
+Feing :                            Easier  REST Clients.
+
+----
+Beneficios de Microservicios: Adaptacion de Tecnlogia y Procesos, Dinamically Scale
+------
+
+Steps para crear un microservicio en spring cloud
+1.- https://start.spring.io/
+2.- Group: com.neosuniversity.spring.cloud
+3.- Artifact: neosuniversity-limit-service
+4.- Dependencies: web, DevTools, Actuator, config client, configuration processor
+5.- Generate, download and import project
+6.- aplication.properties --> spring.application.name= neosuniversity-limit-service
+                              server.port = 8080
+                              limits-service.minimum = 99
+                              limits-service.maximum = 999
+                            @RestController
+7.- Crear un controlador --> LimitsConfigurationController.
+                             @GETMapping("/limits")
+    crear un metodo      --> LimitConfiguration retriveLimitsFromConfigurations() --A return LimitConfiguration(1000,1) //inject parameters of Configuration class of properties values
+    inject Configuration to class (Crear x constructor la injection)
+8.-crear bean 
+                       -->LimitConfiguration --> int maximum, int minimum //setters and getters + constructor + Override toString Method
+9.- crear bean 
+                            @Component
+                            @ConfigurationProperties("limits-service")
+                        --> Configuration  --> int maximum, int minimum //setters and getters + constructor
+
+https://github.com/joshlong/reactive-spring-online-training
+https://www.safaribooksonline.com/videos/reactive-spring-boot/9780135255124
+https://learning.oreilly.com/videos/building-microservices-with/9780134678658
+1.-
+Reactive web
+lombock
+JPA
+Reactive MongoDb
+Actuator
+web
+
+2.-
+Interface RepositoryReservation Extends ReactiveMongoSrepository
+3.-
+@Document
+@Data
+@NoAllArgsConstructor
+String id, name;
+
+@EvenListener(ApplicationRedyEvent.class)
+public void 
+Flux>TSring> name= Flx.just("hugo");
+Flux<Reservation> reservationFlux= names.map(name->newRseservation(null,name)); 
+Flux<Reservation> saved = reservationFlux.flatMap(this.rreservationRespository::save);
+saved.suscribe(new Consumer<Reservation> ->log::info)
+
+return this.reservationRepository.findAll();
+
+
+
