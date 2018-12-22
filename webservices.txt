@@ -1,0 +1,119 @@
+Pro RESTFul Apis Sanjay Patni
+RESTFul Java Webservices 
+Java EE 8 Development With Eclipse
+Java Web Services Up and Running
+
+###############
+SOAP AND REST
+###############
+Web Service : Es una aplicacion distribuida el cual sus componentes son deployados y ejecutados en diferentes Devices.
+MicroService: Es una pequeña aplicacion diseñada para tener un alto performance y un especifico business y tiene su propia base de datos (la implementacion de un microservicio es un RESTful Web services)
+Microservicios MicroProfile usando JEE 8 JAX-RS + JSON-P (Config 1.0, CDI 1.2 JSON-P 1.0)
+
+Implementaciones
+-WildFly Swarm
+-WebSphere Liberty
+-Payara
+-Apache TomEE
+https://microprofile.io/
+-Spring Boot no es parte de microprofile
+
+
+
+
+***************
+***************
+SOAP 	= Simple Object Access Protocol. Basado en JAX-WS
+***************
+***************
+Caracteristicas
+-----
+-Depende de varias tecnologias como UDDI, WSDL (Webservice descriptor Lenguage), SOAP, HTTP
+-Creado en 1998 por Dave Winer
+-Basado en verbo + Noun = getUser, createUser
+-Puede ser decrito facilmente mediante su WSDL
+-Depende de la banda ancha
+-SOAP se comunica x medio de XML -RPC (format message)
+***************
+***************
+RESTFul = Representational State Transfer. Basado en JAX-RS para un estilo de arquitectura definido que ayuda a crear y organizar sistemas distribuidos
+***************
+***************
+Caracteristicas:
+---------------
+-Performance: Es simple y eficiente
+-Scalability
+-Simplicity
+-Modifiability
+-Portability: Pueden ser implementados en una tecnologia y consumidos en otra
+-Reability: Es sencillo recuperarse en un caso de fallo.
+-Visibility: 
+-Creado en 2000 por Roy Fielding
+-Basado en Noun = users (plural evita confuciones)   --> Conocido como Resource
+-Puede retorna varios formatos JSON, XML, etc.
+-HTTP es CRUD Operations = (Create,Retrive, update, Delete)-> GET, POST, PUT, DELETE.
+-Safety = GET , OPTIONS, HEAD
+-IDEMPOTENCE= GET ,PUT,DELETE (multiples request tienen el mismo efecto)
+-HATEOAS = For response Hipermidia as the Engine of Application State Hipertext Links (real: relationship and href: is a complete URL that unicamente define a ese recurso)
+-Detalle del diseño: Resources, Representations, Content types, Parameters, HTTP methods, HTTP Status codes, Consistent naming
+
+Schemas for modeling --> Swagger: JSON Large Community, BluePrint: marckdown, low adoption  y RAML: markdown relatively new
+
+URI Convention: http://localhost:8080/neosunivesity/ -->Service Root
+				/v1/students 						 --> Resouce path
+				?top=2&orderby=Location				 -->Query String Options
+
+----------------------
+XML: extensible Markup Languaje. Son documentos bien formados (validador XML schema o DTDs Documents Type definitions)
+Version
+encoding
+standalone
+Definido atravez de tags, readable, error checking DTDs--> Su problema es que puede procesar caracteres ilegales, imagenes requieren encoding extra
+--------------------------
+
+JSON: JavAcript Object Anotation
+Diseñado para que sea entendido por un humano, extension .json,JSON es facil de escribir y leer, JSON es un lenguaje independiente.
+Tipos de dato: Strings, Objects, Numbers, Array y boolean
+Performante ya que es mas ligero el mensaje
+Contras --> No se pueden usar comentarios, no es ligero como tipo binario
+---------------------------------------------------------
+
+JAX-RS = Java Api for ResTFul Web Services es Java proggraming Language API Especification que provee soporte para la creacion de servicios web accorde  a la arquitectura REST Pattern
+Basado en una colleccion de interfaces y anotaciones Java Que simplifica el desarrollo de los web services.
+Caracteristicas:
+-POJO : Una clase plana como resource
+-HTTP centric modeling
+-Se incluye JEE
+-Validaciones
+-Input / ouput = APPLICATION_JSON, APPLICATION_XML, TEXT_HTML, TEXT_PLAIN, TEXT_XML
+-INJECTION: proveen informacion de request que seran injectados al pojo --> @Path, @Queryparam (Opcionales y vienen como parametros en la URL despues del signo? ), @PathParam (son parte de la URL son obligatorios)
+-Http codes: Success: 200 ok, 201 created, 204 No content. Redirection: 304 Not Modified
+			 Error: 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 405 Method not Allowed, 408 Request Time Out, 409 Conflic
+			 Server Error= 500 Internal server error,
+JAX-RS ANNOTATIONS:
+Request Methods= @GET, @POST, @PUT, @DELETE, @HEAD (parecido al @GET pero solo transmite peticion sin body response), @OPTIONS (obtiene una lista de metodos permitidos en el recurso)
+Resource: @Path
+Request-ResponseMedia Type: @Produces and @Consumes
+Request Parameters: @PathParam() Es parte de la URL request), @QueryParam(Injecta el valor al query parameter del recurso), @MatrixParam(nombre valor separado por ;), @HeaderParam, @CookieParam, @DefaultParam, @Context, @BeanParam, @Encode.
+					@FormParam (parametros en un metodo post de un formulario)
+-Si se desea responder con metadata adicional se puede usar Response.ResponseBuilder (Response.ok().cacheControl().entity().build();
+JPA : JAVA PERSISTENCE API(es una especifiacion)Sirve para mapear las tablas de una base a java Objets
+
+Tipos de seguridad en RestFul Webservices
+-HTTP Basic
+-HTTP Digest
+-JWT Authentication (JSON Web Tokens)
+-OAuth Scurity
+-Input validation
+
+
+
+------------------------------------------------------------
+OAuth2 : es un estandar que se delega para la autorizacion de acceso de los recursos de HTTP
+Autenticacion: Quien esta haciendo el request
+Autorizacion: A que tiene permiso
+Roles: Resource Owner y Resource Server
+Token: Cadenas generados de forma RAMDOM generado por el Server para que un cliente se pueda conectar.
+Acces Token: Permite a un cliente poder acceder a la informacion por medio de un header request.
+RefreshToken: Cuando hay un problema con el token se puede usar esta opcion pero no siempre esta disponible en cada request.
+

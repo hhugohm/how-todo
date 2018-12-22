@@ -1,0 +1,28 @@
+ARRIS-0022_EXT
+pass: @ppl3_EXT_2016
+@ppl3_2016
+
+comando ipconfig /release
+ ipconfig /renew
+ 
+ netsh int ip reset all
+ netsh winsock reset catalog
+ 
+ ALTER TABLE public.te_usuario ALTER COLUMN id_user TYPE serial;
+ 
+ CREATE SEQUENCE te_usuario_id_usuario_seq;
+ 
+  ALTER TABLE public.te_usuario ALTER COLUMN id_user TYPE integer DEFAULT nextval('te_usuario_id_usuario_seq');
+  
+  CREATE TABLE te_usuario (
+    id_usuario integer NOT NULL DEFAULT nextval('te_usuario_id_usuario_seq')
+);
+
+
+Ibiza001
+
++1 877 215 5230
+
+git remote set-url origin https://hector.hidalgo:Temporal015@wdgit-tx.corp.globant.com/git/JWT443
+
+"if"
