@@ -1,0 +1,76 @@
+################
+Spring Framework
+###############
+https://www.safaribooksonline.com/videos/spring-framework-essentials/9781491942680/9781491942680-video236091
+https://docs.spring.io/spring/docs/4.3.1.RELEASE/spring-framework-reference/html/
+http://www.javarticles.com/2016/01/spring-component-annotation-example.html
+
+Creado en los años de 2004-2006 x Rod Johnson
+basado en:
+		JEE
+			Componentes
+				jar, war, ear
+			Containers
+			 web y ejb
+			Servicies
+				security
+				transaction
+				persistence
+				resource pooling
+			meta-data
+				xml
+					deployment descriptor
+			lightweigth container
+				provide service POJOs --> Spring Beans
+		Spring 1.0 --> 2004
+		Spring 2.0 --> 2006
+			simplified XML config
+		Spring 2.5 --> 2007
+			annotation configuration
+		Sprinh 3.0 --> 2010 to 2012
+		Spring 4.0 --> 2014
+			support java 8
+			
+		Spring boot --> 2014  --> Spring Core
+		Spring favors interfaces/class separation
+			write your code in terms of interfaces
+			tell Spring which classes to provide
+			"wire everithing together"
+			Usar API y Documentacion de Spring segun cada version
+			
+		inversion of control
+			container (IoC)
+		Injecting dependencies
+		
+		A dependency is a simple an attribute, metothod argument return type
+		Injection is calling setter method or using constructor argument
+		
+		Metadata describe actually classs and services that we want 
+		Spring wires everithing together and manages the lifecycle
+		
+	Spring Tool Suite --> Basado en eclipse
+	Intellij
+	spring inializar --> spring boot
+		
+Spring.io
+
+
+maven and gradle (gradold)
+Maven dependecy Management
+
+@Configuration 	--> No es parte de  la logica de negocios, entidad o repositorio o servicio --> Se comunica con spring (metadata) lo que tu que quieres q haga
+@ImportResource -->(importar un xml configuration)
+@Import 		-->(Nombre_Clase_Java.class) importa otra configuracion
+@Bean 			-->	Identifica como un Bean en Spring
+@ComponentScan(basepackages="") -->Escanea cierto paquete
+repositories
+services
+controllers
+components
+@Component		--> componente identificado como un Pojo
+@Autowire 		--> busca el bean que tenga el nombre del ID Bean y realiza la injeccion
+@Qualifier("nombredel bean") -->Identifica un nombre especifico
+@Resource  		--> Es parte de la especificacion de java y es el reemplazo del Autowire pero debe corresponder con el nombre del bean (estandar java)
+
+Por defaul todos Spring Beans son Singleton pero puede haver prototype
+Si es una aplicacion Spring MVC entonces puede haber request y session
