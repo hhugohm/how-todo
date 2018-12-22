@@ -1,0 +1,37 @@
+######################
+Boostrap 4
+#####################
+
+Definicion: es un front end framework el cual es muy popular en HTML, CSS, and JavaScript para el desarrolo de responsive sites.
+Responsive: Automaticamente resize , hide shrink, o a large website haciendo una mejor vista en todos los devices (desktops, tables and phones)
+
+Notas:
+* La mayoria de navegadores soportan boostrap 4 a excepcion de Internet explorer 9
+* Si se desea usar internet Explores 8/9 usar boostrap 3
+
+Caracteristicas
+* Sencillo de usar
+* Responsivie features.
+* Mucha funcionalidad para mobiles
+* Browser compatibility
+* La forma de obtener boostrap es por medio de CDN (Content Delivery Network) o Download https://getbootstrap.com/
+-----------------------------------------------------
+La forma de comenzar con boostrap es usando HTML 5
+<!doctype html>
+<html lang="en">
+  ...
+</html>
+------------------------------------------------------
+
+Bootrap trabaja atraves de containers:
+1. The .container class provides a responsive fixed width container
+2. The .container-fluid class provides a full width container, spanning the entire width of the viewport
+
+Foundation
+https://foundation.zurb.com/apps/docs/#!/installation
+bower install foundation-apps
+bower install bootstrap#4.0
+bower install foundation-sites
+
+
+

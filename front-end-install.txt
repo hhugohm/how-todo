@@ -1,0 +1,32 @@
+#####################################
+Instalacion de herramientas de Front end
+######################################
+
+1.- instalacion de nvm en windows --> https://github.com/coreybutler/nvm-windows
+2.- Ejecutar nvm-setup.exe wizard 
+3.- En una terminal de comandos ejecutar
+ $ nvm
+ Running version 1.1.7.
+ Usage:
+
+ 
+1.-instalacion de nodejs  --> https://nodejs.org/en/
+2.-como hemos instalado nvm vamos a instalar nodejs por medio de esta herramienta.
+3.- ejecutar en siguiente comando:
+$ nvm install 10.14.2     --> es importante verificar en en paso 1 cual es la version estable de nodejs
+$ nvm list 
+$ nvm use 10.14.2
+$ node -v
+$ npm -v
+
+
+1.- instalcion de bower -->https://bower.io/
+2.-ejecutar el siguiente comando
+3.- npm install -g bower
+
+
+1.- clonar https://github.com/hhugohm/angular1.git
+2.- ir a angular1\course-01-04 y ejecutar 
+$  bower list
+$ 
+ 
