@@ -1,0 +1,60 @@
+#########
+HTML 5
+#########
+
+* Surgio con la web
+* Se hizo con un metalenguaje SGML (generico) marcado (etiqeutas)
+* Grupo cerrado de etiquetas 
+* Definicion de siglas HTML
+* Dificil de mantener contenido y diseño
+* XHTML (HTML) difiere en q no se basa XML abrir y cerrar las etiquetas
+* HTML5 nuevas ideas y compatibilidad sin tener q usar XML
+* Todas las etiquetas en minusculas
+* Comillas en los atributos
+* <!DOCTYPE html>
+* <meta charset="UTF-8"> <!-- codificacion -->Se puede usar sin cerrar
+* <link  rel="stylesheet" href="estilos.css">    (conecta a un archivo a un css)
+* <script src="comportamiento.js">
+* etiquetas semanticas (marcado)
+-----------
+<header>
+</header>
+* navengacion lista
+<nav>
+    <ul>
+        <li></li>
+    </ul>
+</nav>
+* Etiquetas seccion
+<section>
+    <h1>titulo</h1>
+    <p>Contenido</p>
+</section>
+<aside> (informacion secundaria)
+    <h1>titulo</h1>
+</aside>
+<article>  (independiente o autonomo)
+    <header>
+    </header>
+    <footer>
+    </footer>
+</article>
+<footer>
+    <p>Derechos de autor</p>
+</footer>
+<time datetime="2018-09-23">23 de Sep</time> (forma usuario y forma maquina)
+<progress  value="70" max="100" >70%</progress>
+----------------
+Los media
+ (Requiere javascript nativo de html5 -->flash)
+<canvas id="prueba"  width="300" height="200"></canvas>
+</canvas>
+<audio controls>
+    <source src="horse.ogg" type="audio/mepg">
+    <source src="horse.ogg" type="audio/mepg">
+</audio>
+<video width="300" height="200" poster="images/movie.gif">
+     <source src="movie.mp4" type="video/mp4">
+</video>
+
+

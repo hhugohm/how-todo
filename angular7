@@ -1,0 +1,14 @@
+https://cli.angular.io/
+
+npm install -g @angular/cli
+
+instalacion de forma global = -g para el sistema operativo
+ng v
+
+ng new my-dream-app
+ng serve
+
+npm install bootstrap --save
+ ng build
+ ng g c menu
+  ng generate component menu
